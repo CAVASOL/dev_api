@@ -84,8 +84,10 @@ exports.updateCourse = asyncHandler(async (req, res, next) => {
 
   if (!course) {
     return next(
-      new ErrorResponse(`No course with id of ${req.params.id}`),
-      404
+      new ErrorResponse(
+        `No course with id of ${req.params.id}`,
+        404
+      )
     );
   }
 
@@ -117,8 +119,10 @@ exports.deleteCourse = asyncHandler(async (req, res, next) => {
 
   if (!course) {
     return next(
-      new ErrorResponse(`No course with id of ${req.params.id}`),
-      404
+      new ErrorResponse(
+        `No course with id of ${req.params.id}`,
+        404
+      )
     );
   }
 

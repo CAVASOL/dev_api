@@ -19,7 +19,10 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
 
   if (!bootcamp) {
     return next(
-      new ErrorResponse(`Bootcamp not found with ID of ${req.params.id}`, 404)
+      new ErrorResponse(
+        `Bootcamp not found with ID of ${req.params.id}`,
+        404
+      )
     );
   }
 
@@ -40,7 +43,12 @@ exports.createBootcamp = asyncHandler(async (req, res, next) => {
 
   // If the user is not an admin, they can only add one bootcamp
   if (publishedBootcamp && req.user.role !== 'admin') {
-    return next(new ErrorResponse(`The user with ID ${req.user.id} has already published a bootcamp`, 400))
+    return next(
+      new ErrorResponse(
+        `The user with ID ${req.user.id} has already published a bootcamp`,
+        400
+      )
+    );
   }
 
   const bootcamp = await Bootcamp.create(req.body);
@@ -59,7 +67,10 @@ exports.updateBootcamp = asyncHandler(async (req, res, next) => {
 
   if (!bootcamp) {
     return next(
-      new ErrorResponse(`Bootcamp not found with ID of ${req.params.id}`, 404)
+      new ErrorResponse(
+        `Bootcamp not found with ID of ${req.params.id}`,
+        404
+      )
     );
   }
 
@@ -88,7 +99,10 @@ exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
 
   if (!bootcamp) {
     return next(
-      new ErrorResponse(`Bootcamp not found with ID of ${req.params.id}`, 404)
+      new ErrorResponse(
+        `Bootcamp not found with ID of ${req.params.id}`,
+        404
+      )
     );
   }
 
